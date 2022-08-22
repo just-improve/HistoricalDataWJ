@@ -89,7 +89,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
     print("before for ")
     for x in range(iterations):
         response = ftx_client.get_historical_prices(symbol, resolution, start_time, end_time)
-        #response.reverse()
+        response.reverse()
 
         new_list = []
 
@@ -115,7 +115,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_his_candles_wj("AMPL-PERP",60,1)
+    get_his_candles_wj("ADA-PERP",60,1)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
