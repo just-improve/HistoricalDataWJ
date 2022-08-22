@@ -91,4 +91,5 @@ if __name__ == '__main__':
     listMy = ftx_client.get_all_futures()
     orderBook = ftx_client.get_orderbook("1INCH-PERP",2)
     print(orderBook)
-    print(orderBook[1])
+    print(orderBook["bids"])
+    print("hello guys")
