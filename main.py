@@ -44,33 +44,13 @@ def get_historical_candles(symbol, resolution, iterations):
     start_time = end_time - one_day_in_seconds
 
     # keys = ['close', 'high', 'low', 'open', 'startDate', 'startTime', 'volume', 'time']
-    keys = ['close', 'high', 'low', 'open', 'startDate', 'startTime']
-    file_name = "ftx-" + symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
+    file_name = "ftx-" + symbol + "-" + ".csv"
     file = open(file_name, 'w', newline='')
-    dict_writer = csv.DictWriter(file, keys)
-    dict_writer.writeheader()
     print("before for ")
-    for x in range(iterations):
-        response = ftx_client.get_historical_future_candles(symbol, resolution, start_time, end_time)
-        response.reverse()
-
-        new_list = []
-
-        for r in response:
-            d = dict()
-            d['close'] = r['close']
-            d['high'] = r['high']
-            d['low'] = r['low']
-            d['open'] = r['open']
-            dt = parser.parse(r['startTime'])
-            d['startDate'] = dt.strftime("%Y/%m/%d")
-            d['startTime'] = dt.strftime("%H:%M:%S")
-            new_list.append(d)
-            print(d)
-        dict_writer.writerows(new_list)
-        #print(new_list)
-        end_time -= one_day_in_seconds
-        start_time = end_time - one_day_in_seconds
+    response = ftx_client.get_historical_future_candles(symbol, resolution, start_time, end_time)
+    print(response)
+    for x in response:
+        file.write(x)
 
     file.close()
     print("finished")
@@ -80,21 +60,29 @@ def get_his_candles_wj (symbol, resolution, iterations):
 
     end_time = time.time()
     start_time = end_time - one_day_in_seconds
+    start_time2 = end_time - 3600
+
+
+    file_name = "ftx-" + symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
+
+    keys = ['open', 'high', 'low', 'close', 'volume', 'startTime', 'time']
 
     file_name = "ftx-" + symbol + "-" + ".csv"
     file = open(file_name, 'w', newline='')
+    dict_writer = csv.DictWriter(file, keys)
+    dict_writer.writeheader()
     print("before for ")
     response = ftx_client.get_historical_prices(symbol, resolution, start_time, end_time)
 
     for x in response:
-        file.write(str(x))
+        dict_writer.writerows(response)
 
     file.close()
     print("finished")
 
 
 if __name__ == '__main__':
-    get_his_candles_wj("ADA-PERP",60,3)
+    get_historical_candles("BTC-PERP",60,3)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
