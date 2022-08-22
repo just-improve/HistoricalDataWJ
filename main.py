@@ -45,7 +45,7 @@ def get_historical_candles(symbol, resolution, iterations):
 
     # keys = ['close', 'high', 'low', 'open', 'startDate', 'startTime', 'volume', 'time']
     keys = ['close', 'high', 'low', 'open', 'startDate', 'startTime']
-    file_name = "ftx-" + symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
+    file_name = symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
     file = open(file_name, 'w', newline='')
     dict_writer = csv.DictWriter(file, keys)
     dict_writer.writeheader()
@@ -82,7 +82,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
     start_time = end_time - one_day_in_seconds
 
     keys = ['open', 'high', 'low', 'close','volume', 'startDate', 'startTime']
-    file_name = "ftx-" + symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
+    file_name = symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)] + ".csv"
     file = open(file_name, 'w', newline='')
     dict_writer = csv.DictWriter(file, keys)
     dict_writer.writeheader()
@@ -115,7 +115,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_his_candles_wj("ADA-PERP",60,1)
+    get_his_candles_wj("DOGE-PERP",60,2)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
