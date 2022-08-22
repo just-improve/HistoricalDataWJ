@@ -27,7 +27,7 @@ def get_funding_rates(iterations):
     dict_writer.writeheader()
 
     for x in range(iterations):
-        funding_rates = ftxClient.get_all_funding_rates(start_time, end_time, 'LUNA-PERP')
+        funding_rates = ftxClient.get_all_funding_rates(start_time, end_time, 'BTC-PERP')
 
         dict_writer.writerows(funding_rates)
 
@@ -77,7 +77,6 @@ def get_historical_candles(symbol, resolution, iterations):
 
 if __name__ == '__main__':
     # get_historical_candles()
-    # get_funding_rates()
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
     #resolutionArg = RESOLUTION["5m"] # RESOLUTION[str(sys.argv[2])]
@@ -87,9 +86,10 @@ if __name__ == '__main__':
     #get_historical_candles(symbolArg, resolutionArg, iterationsArg)
     #print("FINISHED")
 
-    ftx_client = FtxClient()
-    listMy = ftx_client.get_all_futures()
-    orderBook = ftx_client.get_orderbook("1INCH-PERP",2)
-    print(orderBook)
-    print(orderBook["bids"])
-    print("hello guys")
+    #ftx_client = FtxClient()
+    get_funding_rates(3)
+    #listMy = ftx_client.get_all_futures()
+    #orderBook = ftx_client.get_orderbook("1INCH-PERP",2)
+    #print(orderBook)
+    #print(orderBook["bids"])
+    #print("hello guys")
