@@ -82,7 +82,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
     print("finished")
 
 
-def get_15s_candles_wj (symbol, resolution, iterations):
+def get_15s_candles_funding_wj (symbol, resolution, iterations):
     ftx_client = FtxClient()
     days = iterations
     iterations = iterations*4
@@ -126,7 +126,7 @@ def get_15s_candles_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_15s_candles_wj("AMPL-PERP",300,1)
+    get_15s_candles_funding_wj("AMPL-PERP", 300, 1)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
