@@ -11,7 +11,7 @@ fifteen_days_in_seconds = 1296000
 ten_days_in_seconds = 864000
 one_day_in_seconds = 86400
 
-RESOLUTION = {"1m": 60, "5m": 300, "1h": 3600, "1d": 86400}
+RESOLUTION = {"15s": 15, "1m": 60, "5m": 300, "1h": 3600, "1d": 86400}
 
 
 def get_funding_rates(iterations):
@@ -104,7 +104,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
             d['startDate'] = dt.strftime("%Y/%m/%d")
             d['startTime'] = dt.strftime("%H:%M:%S")
             new_list.append(d)
-            print(d)
+            #print(d)
         dict_writer.writerows(new_list)
         #print(new_list)
         end_time -= one_day_in_seconds
@@ -115,7 +115,7 @@ def get_his_candles_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_his_candles_wj("DOGE-PERP",60,2)
+    get_his_candles_wj("BTC-PERP",60,5)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
