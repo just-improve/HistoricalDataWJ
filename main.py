@@ -137,6 +137,10 @@ def get_15s_candles_funding_wj (symbol, resolution, iterations):
     dict_writer = csv.DictWriter(file, keys)
     dict_writer.writeheader()
     print("before for ")
+    #response_funding = ftx_client.get_all_funding_rates(start_time, end_time, symbol)
+    #response_funding.reverse()
+    #print(response_funding)
+
     for x in range(iterations):
         response = ftx_client.get_historical_prices(symbol, resolution, start_time, end_time)
         response.reverse()
@@ -164,7 +168,7 @@ def get_15s_candles_funding_wj (symbol, resolution, iterations):
             new_list.append(d)
             #print(d)
         dict_writer.writerows(new_list)
-        #print(new_list)
+        print(new_list)
         end_time -= one_day_in_seconds
         start_time = end_time - one_day_in_seconds
 
@@ -173,7 +177,7 @@ def get_15s_candles_funding_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_15s_candles_funding_wj("ETH-PERP", 300, 1)
+    get_his_candles_wj("AMPL-PERP", 60, 1)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
