@@ -141,7 +141,7 @@ def get_15s_candles_funding_wj (symbol, resolution, iterations):
         response = ftx_client.get_historical_prices(symbol, resolution, start_time, end_time)
         response.reverse()
         response_funding= ftx_client.get_all_funding_rates(start_time, end_time, symbol)
-        response_funding.reverse()
+        #response_funding.reverse()
         print(response_funding)
 
         new_list = []
