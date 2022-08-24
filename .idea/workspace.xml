@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba576510-0397-482e-a3de-a9e900bb9af5" name="Changes" comment="Metoda pobierająca dane 15 s również">
+    <list default="true" id="ba576510-0397-482e-a3de-a9e900bb9af5" name="Changes" comment="Metoda pobierająca dane historyczne z volumenem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -95,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661198566250</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Metoda pobierająca dane 15 s również">
+      <created>1661332093360</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661332093360</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Metoda pobierająca dane 15 s również">
+      <created>1661332135574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661332135574</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
