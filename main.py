@@ -54,9 +54,6 @@ def get_his_candles_wj (symbol, resolution, iterations):
     dict_writer = csv.DictWriter(file, keys)
     dict_writer.writeheader()
     print("before for ")
-    #pobiera 1500 rekordów a na minutówce mamy 1440 rekordów więc pobierze 1440 rekordów i przejdzie do następnego dnia i znowu pobierzez 1440 rekordów
-    #w przypadku 15 sekundóek pobierze 1500 a to nie jest całość więc powinien pobrać co
-    #15s  = 5760 rekordów
     for x in range(iterations):
         response = ftx_client.get_historical_prices(symbol, resolution, start_time, end_time)
         response.reverse()
@@ -126,13 +123,12 @@ def get_15s_candles_wj (symbol, resolution, iterations):
 
 def get_15s_candles_funding_wj (symbol, resolution, iterations):
     ftx_client = FtxClient()
-    days = iterations
-    iterations = iterations*4
+
     end_time = time.time()
     start_time = end_time - one_day_in_seconds
 
     keys = ['open', 'high', 'low', 'close','volume', 'startDate', 'startTime','rate']
-    file_name = symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)]+" " + str(days) +" dni v15s funding"+ ".csv"
+    file_name = symbol + "-" + list(RESOLUTION.keys())[list(RESOLUTION.values()).index(resolution)]+" " + str(iterations) +" dni v15s funding"+ ".csv"
     file = open(file_name, 'w', newline='')
     dict_writer = csv.DictWriter(file, keys)
     dict_writer.writeheader()
@@ -177,7 +173,7 @@ def get_15s_candles_funding_wj (symbol, resolution, iterations):
 
 
 if __name__ == '__main__':
-    get_his_candles_wj("AMPL-PERP", 60, 1)
+    get_15s_candles_funding_wj("AMPL-PERP", 3600, 3)
 
 
     #symbolArg = "BTC" # str(sys.argv[1])   #odczytuje btc jako arg 1
