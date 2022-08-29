@@ -217,19 +217,6 @@ def get_1h_candles_with_funding_wj (symbol, iterations):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #do danych 15s
 def return_list_from_file (file_name):
     #file_name = "ETH-PERP-1h 1 dni v15s.csv"
